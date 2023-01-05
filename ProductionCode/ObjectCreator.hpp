@@ -14,9 +14,9 @@ private:
     double compute_days_to_bill(int material_cost, int base_cost);
     double compute_percentage(int caster_level, int enchantment_levels);
     int compute_helpers(int caster_level);
-    int compute_labor_cost(int caster_level, double days_to_create);
-    int adjust_price_based_on_difficulty(double base_cost, const vector<double>& rolls);
-    int compute_material_cost(const vector<int>& enchantment_cost_by_level, const vector<double>& rolls);
-    void removePriceRest(vector<int>& price_by_roll, const vector<double>& percentage_by_cumulative_roll, int index);
+    double compute_labor_cost(int caster_level, double days_to_create);
+    double adjust_price_based_on_difficulty(double base_cost, const vector<double>& rolls);
+    double compute_material_cost(const vector<int>& enchantment_cost_by_level, const vector<double>& rolls);
+    void removePriceRest(vector<double>& price_by_roll, const vector<double>& percentage_by_cumulative_roll, int index);
 };
 #endif

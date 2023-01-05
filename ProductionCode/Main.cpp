@@ -27,9 +27,9 @@ int main ()
       cout<<"\n"<<endl;
       ObjectCreationSummary summary = cl.compute_details_object_creation(item);
       cout<<"Days to create: "<<summary.days_to_create<<endl;
-      cout<<"Costo materiali: "<<summary.material_cost<<endl;
-      cout<<"Costo lavoro: "<<summary.labor_cost<<endl;
-      cout<<"Costo totale: "<<summary.total_cost<<endl;
+      cout<<"Costo materiali: "<<static_cast<int>(summary.material_cost)<<endl;
+      cout<<"Costo lavoro: "<<static_cast<int>(summary.labor_cost)<<endl;
+      cout<<"Costo totale: "<<static_cast<int>(summary.total_cost)<<endl;
       cout<<"Tiri richiesti: ";
       for(size_t i=0;i<summary.rolls_required.size();i++)
       {

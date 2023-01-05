@@ -34,14 +34,14 @@ protected:
     {
         if(result.days_to_create!=expected_result.days_to_create)
             cout<<"Wrong days to create, result: "<<result.days_to_create<<" expected: "<<expected_result.days_to_create<<endl;
-        if(result.material_cost!=expected_result.material_cost)
+        if(abs(result.material_cost-expected_result.material_cost)>0.5)
             cout<<"Wrong material cost, result: "<<result.material_cost<<" expected: "<<expected_result.material_cost<<endl;
-        if(result.labor_cost!=expected_result.labor_cost)
+        if(abs(result.labor_cost-expected_result.labor_cost)>0.5)
             cout<<"Wrong labor cost, result: "<<result.labor_cost<<" expected: "<<expected_result.labor_cost<<endl;
-        if(result.total_cost!=expected_result.total_cost)
+        if(abs(result.total_cost-expected_result.total_cost)>0.5)
             cout<<"Wrong total cost, result: "<<result.total_cost<<" expected: "<<expected_result.total_cost<<endl;
         for(std::size_t i=0;i<result.rolls_required.size();i++)
-            if(result.rolls_required[i]!=expected_result.rolls_required[i])
+            if(abs(result.rolls_required[i]-expected_result.rolls_required[i])>0.01)
                 cout<<"Wrong rolls required,("<<i<<") result: "<<result.rolls_required[i]<<" expected: "<<expected_result.rolls_required[i]<<endl;
     }
 };

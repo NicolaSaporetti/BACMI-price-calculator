@@ -5,9 +5,9 @@ using namespace std;
 
 typedef struct ObjectCreationSummary {
     int days_to_create;
-    int material_cost;
-    int labor_cost;
-    int total_cost;
+    double material_cost;
+    double labor_cost;
+    double total_cost;
     vector<double> rolls_required;
 } ObjectCreationSummary;
 #endif
