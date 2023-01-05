@@ -8,5 +8,6 @@ typedef struct ItemSummary {
     int total_cost;
     int charge_cost;
     vector<int> enchantment_levels;
+    vector<int> enchantment_cost_by_level;
 } ItemSummary;
 #endif

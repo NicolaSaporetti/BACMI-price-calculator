@@ -10,7 +10,7 @@ int main ()
   Test_Calculator calculator;
   calculator.run();
   Test_WeaponCalculator weapon_test;
-  weapon_test.run();
+  weapon_test.run(); 
   Test_ArmorCalculator armor_test;
   armor_test.run();
   Test_InputValidation input_validation_test;

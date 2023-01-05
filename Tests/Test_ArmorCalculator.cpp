@@ -21,7 +21,7 @@ private:
         cout<<"test_calculate_cost_armor run"<<endl;
         Armor weapon = {ArmorType::Piastre,1};
         Calculator calculator;
-        ItemSummary expected_result = {10000,10000,0,{1}};
+        ItemSummary expected_result = {10000,10000,0,{1},{10000}};
 
         ItemSummary result = calculator.calculate_cost_armor(weapon);
         verify_equal(result,expected_result);
@@ -31,7 +31,7 @@ private:
         cout<<"test_calculate_cost_armor_approximated run"<<endl;
         Armor weapon = {ArmorType::Maglia,1};
         Calculator calculator;
-        ItemSummary expected_result = {5340,5340,0,{1}};
+        ItemSummary expected_result = {5340,5340,0,{1},{5340}};
 
         ItemSummary result = calculator.calculate_cost_armor(weapon);
         verify_equal(result,expected_result);
@@ -41,7 +41,7 @@ private:
         cout<<"test_calculate_cost_armor_with_inchantemt_price_below_3000 run"<<endl;
         Armor weapon = {ArmorType::Scudo,1};
         Calculator calculator;
-        ItemSummary expected_result = {3000,3000,0,{1}};
+        ItemSummary expected_result = {3000,3000,0,{1},{3000}};
 
         ItemSummary result = calculator.calculate_cost_armor(weapon);
         verify_equal(result,expected_result);

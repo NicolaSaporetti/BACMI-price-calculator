@@ -22,8 +22,12 @@ protected:
         if(result.charge_cost!=expected_result.charge_cost)
             cout<<"Wrong charge cost, result: "<<result.charge_cost<<" expected: "<<expected_result.charge_cost<<endl;
         for(std::size_t i=0;i<result.enchantment_levels.size();i++)
+        {
             if(result.enchantment_levels[i]!=expected_result.enchantment_levels[i])
                 cout<<"Wrong enchantment level,("<<i<<") result: "<<result.enchantment_levels[i]<<" expected: "<<expected_result.enchantment_levels[i]<<endl;
+            if(result.enchantment_cost_by_level[i]!=expected_result.enchantment_cost_by_level[i])
+                cout<<"Wrong enchantment cost by level,("<<i<<") result: "<<result.enchantment_cost_by_level[i]<<" expected: "<<expected_result.enchantment_cost_by_level[i]<<endl;
+        }
     }
     
     void verify_equal(const ObjectCreationSummary& result, const ObjectCreationSummary& expected_result)

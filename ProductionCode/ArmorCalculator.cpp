@@ -25,6 +25,7 @@ ItemSummary ArmorCalculator::calculate_cost_armor(const Armor& armor)
     adjust_initial_enchantment_cost_in_case_is_below_threshold(threshold, summary.initial_enchantment_cost);
     summary.enchantment_levels = add_enchantment_levels(armor);
     summary.total_cost = summary.initial_enchantment_cost*armor.bonus;
+    summary.enchantment_cost_by_level = {summary.total_cost};
     return summary;
 }
 

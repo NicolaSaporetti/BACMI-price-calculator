@@ -43,6 +43,7 @@ ItemSummary WeaponCalculator::calculate_cost_weapon(const Weapon& weapon)
     summary.enchantment_levels = add_enchantment_levels(weapon);
     double final_bonus = weapon.bonus+static_cast<double>(weapon.secondary_bonus)/2;
     summary.total_cost = static_cast<int>(summary.initial_enchantment_cost*final_bonus);
+    summary.enchantment_cost_by_level = compute_cost_by_enchantment(summary.initial_enchantment_cost,summary.enchantment_levels);
     return summary;
 }
 
@@ -53,6 +54,7 @@ ItemSummary WeaponCalculator::calculate_cost_sword(const Sword& sword)
     summary.enchantment_levels = add_enchantment_levels(sword);
     double final_bonus = sword.weapon.bonus+static_cast<double>(sword.weapon.secondary_bonus+sword.third_bonus)/2;
     summary.total_cost = static_cast<int>(summary.initial_enchantment_cost*final_bonus);
+    summary.enchantment_cost_by_level = compute_cost_by_enchantment(summary.initial_enchantment_cost,summary.enchantment_levels);
     return summary;
 }
 
@@ -83,4 +85,15 @@ vector<int> WeaponCalculator::add_enchantment_levels(const Sword& sword)
     vector<int> enchantment_levels = add_enchantment_levels(sword.weapon);
     if(sword.third_bonus!=0) enchantment_levels.push_back(sword.third_bonus);
     return enchantment_levels;
+}
+
+vector<int> WeaponCalculator::compute_cost_by_enchantment(int initial_enchantment_cost, const vector<int>& spells_level)
+{
+    vector<int> cost_by_enchantment;
+    cost_by_enchantment.push_back(initial_enchantment_cost*spells_level[0]);
+    for(size_t idx=1;idx<spells_level.size();idx++)
+    {
+        cost_by_enchantment.push_back((initial_enchantment_cost*spells_level[idx])/2);
+    }
+    return cost_by_enchantment;
 }

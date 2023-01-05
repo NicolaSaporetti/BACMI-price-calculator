@@ -8,6 +8,6 @@ typedef struct ObjectCreationSummary {
     int material_cost;
     int labor_cost;
     int total_cost;
-    vector<int> rolls_required;
+    vector<double> rolls_required;
 } ObjectCreationSummary;
 #endif

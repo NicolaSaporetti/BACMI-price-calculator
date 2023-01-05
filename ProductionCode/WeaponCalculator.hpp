@@ -17,6 +17,7 @@ private:
     void adjust_initial_enchantment_cost_in_case_is_below_threshold(int threshold, int& initial_enchantment_cost);
     vector<int> add_enchantment_levels(const Weapon& weapon);
     vector<int> add_enchantment_levels(const Sword& weapon);
+    vector<int> compute_cost_by_enchantment(int initial_enchantment_cost, const vector<int>& spells_level);
 
     unordered_map<WeaponType,ArmorAndWeapon> weapon_features;
 };

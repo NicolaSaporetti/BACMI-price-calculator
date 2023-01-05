@@ -18,6 +18,7 @@ public:
 private:
     double compute_charges_item_multiplier(RechargeType recharge_type);
     int compute_additional_chages(RechargeType recharge_type);
+    vector<int> compute_cost_by_enchantment(int total_cost, const vector<int>& spells_level, int sum_spell_levels);
     void set_cost_for_charges_to_none_if_non_rechargeable_or_periodical(RechargeType recharge_type, int& charges);
 
     WeaponCalculator weapon_creator;

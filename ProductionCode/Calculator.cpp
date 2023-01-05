@@ -32,6 +32,7 @@ ItemSummary Calculator::calculate_cost_item_with_charges(const ItemWithCharges& 
     summary.enchantment_levels = item_with_charges.spells_level;
     summary.charge_cost = summary.initial_enchantment_cost/10;
     summary.total_cost = summary.initial_enchantment_cost+charges*summary.charge_cost;
+    summary.enchantment_cost_by_level = compute_cost_by_enchantment(summary.total_cost,item_with_charges.spells_level,sum_spell_levels);
     set_cost_for_charges_to_none_if_non_rechargeable_or_periodical(item_with_charges.recharge_type,summary.charge_cost);
     return summary;
 }
@@ -78,6 +79,16 @@ int Calculator::compute_additional_chages(RechargeType recharge_type)
     return additional_charges;
 }
 
+vector<int> Calculator::compute_cost_by_enchantment(int total_cost, const vector<int>& spells_level, int sum_spell_levels)
+{
+    vector<int> cost_by_enchantment;
+    for(const auto& spell : spells_level)
+    {
+        cost_by_enchantment.push_back((total_cost/sum_spell_levels)*spell);
+    }
+    return cost_by_enchantment;
+}
+
 void Calculator::set_cost_for_charges_to_none_if_non_rechargeable_or_periodical(RechargeType recharge_type, int& charges)
 {
     switch (recharge_type)
@@ -100,5 +111,6 @@ ItemSummary Calculator::calculate_cost_permanent_item(const PermanentItem& item)
     summary.enchantment_levels = {item.spell_level};
     int permanency_cost = summary.initial_enchantment_cost*5;
     summary.total_cost = summary.initial_enchantment_cost+permanency_cost;
+    summary.enchantment_cost_by_level = {summary.total_cost};
     return summary;
 }

@@ -7,5 +7,6 @@ typedef struct ObjectRecipe {
     int total_cost;
     int caster_level;
     vector<int> enchantment_levels;
+    vector<int> enchantment_cost_by_level;
 } ObjectRecipe;
 #endif
