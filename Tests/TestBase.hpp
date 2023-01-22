@@ -44,5 +44,17 @@ protected:
             if(abs(result.rolls_required[i]-expected_result.rolls_required[i])>0.01)
                 cout<<"Wrong rolls required,("<<i<<") result: "<<result.rolls_required[i]<<" expected: "<<expected_result.rolls_required[i]<<endl;
     }
+
+    void verify_equal(int result, int expected_result)
+    {
+        if(result!=expected_result)
+            cout<<"Wrong days to create, result: "<<result<<" expected: "<<expected_result<<endl;
+    }
+
+    void verify_equal(double result, double expected_result)
+    {
+        if(result!=expected_result)
+            cout<<"Wrong days to create, result: "<<result<<" expected: "<<expected_result<<endl;
+    }
 };
 #endif

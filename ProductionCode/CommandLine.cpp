@@ -79,7 +79,7 @@ ItemSummary CommandLine::compute_cost()
 ObjectCreationSummary CommandLine::compute_details_object_creation(const ItemSummary& item)
 {
     ObjectCreationSummary result;
-    ObjectRecipe recipe = {item.total_cost,fill_caster_levels(),item.enchantment_levels};
+    ObjectRecipe recipe = {item.total_cost,fill_caster_levels(),item.enchantment_levels,item.enchantment_cost_by_level};
     result = objectCreator.calculate_cost_magic_object(recipe);
     return result;
 } 

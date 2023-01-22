@@ -2,6 +2,7 @@
 #include "Test_WeaponCalculator.cpp"
 #include "Test_ArmorCalculator.cpp"
 #include "Test_InputValidation.cpp"
+#include "Test_PercentageComputation.cpp"
 #include "Test_ObjectCreator.cpp"
 using namespace std;
 
@@ -15,7 +16,9 @@ int main ()
   armor_test.run();
   Test_InputValidation input_validation_test;
   input_validation_test.run();
-  Test_ObjectCreator object_creator;
-  object_creator.run();
+  Test_ObjectCreator object_creator_test;
+  object_creator_test.run();
+  Test_PercentageComputation percentage_computator_test;
+  percentage_computator_test.run();
   return 0;
 }

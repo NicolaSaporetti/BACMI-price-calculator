@@ -5,6 +5,7 @@
 #include "ObjectCreator.cpp"
 #include "WeaponCalculator.cpp"
 #include "ArmorCalculator.cpp"
+#include "PercentageComputation.cpp"
 #include "ItemSummary.hpp"
 #include "ObjectCreationSummary.hpp"
 using namespace std;
@@ -26,7 +27,7 @@ int main ()
       }
       cout<<"\n"<<endl;
       ObjectCreationSummary summary = cl.compute_details_object_creation(item);
-      cout<<"Days to create: "<<summary.days_to_create<<endl;
+      cout<<"Giorni per creazione: "<<summary.days_to_create<<endl;
       cout<<"Costo materiali: "<<static_cast<int>(summary.material_cost)<<endl;
       cout<<"Costo lavoro: "<<static_cast<int>(summary.labor_cost)<<endl;
       cout<<"Costo totale: "<<static_cast<int>(summary.total_cost)<<endl;

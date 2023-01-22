@@ -1,6 +1,7 @@
 #include "ObjectCreator.hpp"
 #include "ObjectCreationSummary.hpp"
 #include "ObjectRecipe.hpp"
+#include "PercentageComputation.hpp"
 using namespace std;
 
 ObjectCreationSummary ObjectCreator::calculate_cost_magic_object(const ObjectRecipe& object_recipe)
@@ -17,27 +18,9 @@ ObjectCreationSummary ObjectCreator::calculate_cost_magic_object(const ObjectRec
 vector<double> ObjectCreator::compute_roll_required(const vector<int>& enchantment_levels, int caster_level)
 {
     vector<double> rolls;
-    for(size_t idx=0; idx<enchantment_levels.size(); idx++) rolls.push_back(min(compute_percentage(caster_level,enchantment_levels[idx]),1.0));
+    PercentageComputation percentage_computation;
+    for(size_t idx=0; idx<enchantment_levels.size(); idx++) rolls.push_back(percentage_computation.success_chance(caster_level,enchantment_levels[idx]));
     return rolls;
-}
-
-double ObjectCreator::compute_percentage(int caster_level, int enchantment_levels)
-{
-    const int intelligence = 18;
-    const int meditation = caster_level/5+((caster_level==36)? 1 : 0);
-    int result =(intelligence+meditation+compute_helpers(caster_level)+caster_level)*2-enchantment_levels*3;
-    return static_cast<double>(result)/100;
-}
-
-int ObjectCreator::compute_helpers(int caster_level)
-{
-    int num_helpers = 0;
-    if(caster_level>=9 && caster_level<12) num_helpers=1;
-    else if(caster_level>=12 && caster_level<15) num_helpers=2;
-    else if(caster_level>=15 && caster_level<20) num_helpers=3;
-    else if(caster_level>=20 && caster_level<25) num_helpers=4;
-    else num_helpers=5;
-    return num_helpers;
 }
 
 double ObjectCreator::adjust_price_based_on_difficulty(double base_cost, const vector<double>& rolls)
